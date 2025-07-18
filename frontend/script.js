@@ -239,3 +239,15 @@ function playNextTemplate() {
   nextRow.classList.add("active");
   activeSequenceRow = nextRow;
 }
+
+
+socket.on('casparcg-status', (data) => {
+  const statusDiv = document.getElementById('status');
+  if (data.connected) {
+    statusDiv.textContent = '✅ Forbundet til CasparCG';
+    statusDiv.style.color = 'green';
+  } else {
+    statusDiv.textContent = '❌ Ikke forbundet til CasparCG';
+    statusDiv.style.color = 'red';
+  }
+});

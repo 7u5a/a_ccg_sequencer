@@ -27,6 +27,10 @@ io.on('connection', (socket) => {
     socket.emit('amcp-response', { command: 'TLS', response: msg });
   });
 
+  amcpClient.on('status', (status) => {
+    socket.emit('casparcg-status', status);
+  });
+
   // OSC event håndtering som før
   socket.on('osc', (data) => {
     console.log('Sending OSC:', data);
