@@ -36,8 +36,8 @@ npm start
 
 ## 🛠 Byg som en app
 
-Sørg for at Electron Builder er installeret globalt (eller via 'devDependencies').
+Sørg for at Pkg er installeret globalt (eller via 'devDependencies').
 ```bash
-npm run dist
+npm run build
 ```
 Output findet i 'dist/'-mappen
