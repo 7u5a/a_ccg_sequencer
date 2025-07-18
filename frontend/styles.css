@@ -1,0 +1,284 @@
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: small;
+  color: #fff;
+  background-color: rgb(33, 33, 33);
+  margin: 0;
+}
+
+/* Root layout: side-ved-side */
+#main.layout {
+  display: flex;
+  gap: 10px;
+  height: 100vh;
+}
+
+/* Venstreside (top + footer i kolonne) */
+#main-left.column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 10px;
+  overflow: hidden;
+  margin: 10px 0 10px 15px;
+}
+
+/* Top med 2 kolonner */
+#top.row {
+  display: flex;
+  flex: 1;
+  gap: 10px;
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* Kolonner i toppen */
+#left {
+  max-width: 390px;
+  flex: 0 0 390px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  gap: 10px;
+}
+
+#middle {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 10px 15px;
+  box-shadow:
+    inset 2px 2px 2px 0px rgb(255 255 255 / 0.3),
+    inset -2px -2px 3px -1px rgb(0 0 0 / 0.6);
+}
+
+/* Footer */
+#footer {
+  height: 120px;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  padding: 10px 15px;
+  box-shadow:
+    inset 2px 2px 2px 0px rgb(255 255 255 / 0.3),
+    inset -2px -2px 3px -1px rgb(0 0 0 / 0.6);
+}
+
+/* Højre kolonne – fuld højde */
+#right-most {
+  width: 200px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  margin: 10px 15px 10px 0;
+  padding: 10px 15px;
+  box-shadow:
+    inset 2px 2px 2px 0px rgb(255 255 255 / 0.3),
+    inset -2px -2px 3px -1px rgb(0 0 0 / 0.6);
+}
+
+
+#data {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 10px 15px;
+  box-shadow:
+    inset 2px 2px 2px 0px rgb(255 255 255 / 0.3),
+    inset -2px -2px 3px -1px rgb(0 0 0 / 0.6);
+}
+
+.data-header, .sequence-header,
+.data-row, .sequence-row {
+  display: grid;
+  grid-template-columns: 1fr 3fr auto;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.sequence-header,
+.sequence-row {
+  grid-template-columns: 2fr 1fr 4fr auto;
+}
+
+.data-header, .sequence-header {
+  color: #ddd;
+  padding: 8px 10px;
+  border-radius: 5px;
+}
+
+.data-row input, .sequence-row input {
+  font-size: 12px;
+  padding: 6px;
+  background-color: #222;
+  color: white;
+  border: 1px solid #555;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sequence-row.active {
+  outline: 2px solid #0099ff;
+  border-radius: 4px;
+}
+
+/* Resten af CSS'en er uændret */
+#templates {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: 15px;
+  padding: 10px 15px;
+  box-shadow:
+    inset 2px 2px 2px 0px rgb(255 255 255 / 0.3),
+    inset -2px -2px 3px -1px rgb(0 0 0 / 0.6);
+}
+
+.data-list {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+#data-rows {
+  flex: 1;
+  overflow: auto;
+  min-height: 0;
+}
+
+#data .button-group {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+.template-select {
+  display: flex;
+  flex-direction: column;
+}
+
+#templateList {
+  font-size: 12px; /* eller 10px, afhængig af plads */
+  width: 266px;
+  margin: 2px 0;
+  font-family: sans-serif;
+}
+
+.channel-layer-autostart {
+  display: flex;
+  align-items: flex-end;
+  gap: 15px;
+}
+
+.short-select {
+  width: 100px;
+  max-width: 100px;
+  text-align: right;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+select,
+input {
+  padding: 5px;
+  background-color: #222;
+  color: white;
+  border: 1px solid #555;
+}
+
+label {
+  font-size: 0.9em;
+  margin-bottom: 4px;
+  display: block;
+  color: #ddd;
+}
+
+.template-select-wrapper {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+#refreshTemplatesBtn, #plusBtn {
+  padding: 5px 20px;
+  background-color: #0099ff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 29px;
+}
+
+#refreshTemplatesBtn:hover, #plusBtn:hover {
+  background-color: #005fa3;
+}
+
+.deleteBtn {
+  background-color: #b81717;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1.8em;
+  border-radius: 4px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5em;
+  margin-top: auto;
+}
+
+.button-group button {
+  flex: 1;
+  padding: 0.5em 0.8em;
+  background-color: #007acc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.button-group button:hover {
+  background-color: #005fa3;
+}
+
+.button-group button:active {
+  transform: scale(0.98);
+  background-color: #004d82;
+}
+
+#addBtn {
+  background-color: #28a745;
+}
+
+#addBtn:hover {
+  background-color: #218838;
+}
+
+#breakerBtn {
+  background-color: #ffc107;
+  color: #333;
+}
+
+#breakerBtn:hover {
+  background-color: #e0a800;
+}
+
+#updateBtn {
+  background-color: #b81717;
+}
+
+#updateBtn:hover {
+  background-color: #961313;
+}

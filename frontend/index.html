@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A CasparCG Seaquencer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="main" class="layout">
+        <!-- Venstre side: top og footer-->
+        <div id="main-left" class="column">
+            <div id="top" class="row">
+                <div id="left" class="container">
+                    <div id="templates" class="container">
+
+                        <div class="template-select-wrapper">
+                            <div class="template-select">
+                                <label for="templateList">Templates:</label>
+                                <select id="templateList">
+                                    <option disabled selected>Indlæser templates...</option>
+                                </select>
+                            </div>
+                            <button id="refreshTemplatesBtn" title="Opdater templates">Refresh</button>
+                        </div>
+
+                        <div class="channel-layer-autostart">
+                            <div>
+                                <label for="channelList">Channel:</label>
+                                <select id="channelList" class="short-select">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="layerList">Layer:</label>
+                                <select id="layerList" class="short-select">
+                                    <option>10</option>
+                                    <option>20</option>
+                                    <option>30</option>
+                                    <option>40</option>
+                                    <option>50</option>
+                                    <option>60</option>
+                                    <option>70</option>
+                                    <option>80</option>
+                                    <option>90</option>
+                                </select>
+                            </div>
+                            <div class="checkbox-group">
+                                <label for="autoStart">AutoStart:</label>
+                                <input type="checkbox" id="autoStart">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="data" class="container">
+                        <div class="data-list">
+                            <div>
+                                <button onclick="addKeyValueRow()" id="plusBtn" title="Tilføj key+value">+</button>
+                            </div>
+                            <!-- Header / labels -->
+                            <div class="data-header">
+                                <div>Key:</div>
+                                <div>Value:</div>
+                                <div></div> <!-- til slet-knap -->
+                            </div>
+
+                            <!-- Her placeres dynamisk tilføjede felter -->
+                            <div id="data-rows">
+                                <!-- Key/value felter tilføjes her dynamisk -->
+                            </div>
+
+                            <div class="button-group">
+                                <button onclick="addSequenceRow()" id="addBtn" title="Tilføj til sekvens">Tilføj</button>
+                                <button id="breakerBtn" title="Tilføj breaker">Breaker</button>
+                                <button id="updateBtn" title="Opdater i sekvens">Opdater</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="middle" class="container">
+                    <div class="sequence-list">
+                        <!-- Header / labels -->
+                        <div class="sequence-header">
+                            <div>Template:</div>
+                            <div>Channel:</div>
+                            <div>Data:</div>
+                            <div></div> <!-- til slet-knap -->
+                        </div>
+
+                        <!-- Dynamisk liste af rækker -->
+                        <div id="sequence-rows">
+                            <!-- JavaScript indsætter rækker her -->
+                        </div>
+
+                        <!-- Tilføj-knap -->
+                        <div class="button-group">
+                            <button onclick="playActiveTemplate()" id="playBtn" title="Afspil">Afspil</button>
+                            <button onclick="playNextTemplate()" id="nextBtn" title="Næste">Næste</button>
+                            <button onclick="stopActiveTemplate()" id="stopBtn" title="Stop">Stop</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="footer" class="container">
+                <div id="status" class="container"></div>
+            </div>
+        </div>
+
+        <!-- Højre kolonne dækker hele højden-->
+        <div id="right-most" class="container">
+            <h3>test</h3>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
